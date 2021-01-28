@@ -1,23 +1,8 @@
 <template>
   <v-app id="app">
-    <router-view></router-view>
     <Header></Header>
-    <!-- navigationbar -->
-    <v-bottom-navigation :value="value" color="teal" glow>
-      <v-btn>
-        <span>Home</span>
-        <v-icon>mdi-history</v-icon>
-      </v-btn>
-      <v-btn>
-        <span>Service</span>
-        <v-icon>mdi-heart</v-icon>
-      </v-btn>
-      <v-btn>
-        <span>Language</span>
-        <v-icon>mdi-map-marker</v-icon>
-      </v-btn>
-    </v-bottom-navigation>
-    <!-- navigationbar -->
+    <FixedNav></FixedNav>
+    <router-view></router-view>
     <ContentView :eList="eList"></ContentView>
   </v-app>
 </template>
@@ -26,11 +11,13 @@
 import axios from "axios";
 import Header from "./components/Header.vue"
 import ContentView from "./components/ContentView.vue"
+import FixedNav from "./components/FixedNav.vue"
 
 export default {
   components: {
     Header,
     ContentView,
+    FixedNav
   },
   el: '#app',
   data(){
