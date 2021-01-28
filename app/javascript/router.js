@@ -6,7 +6,7 @@ import NavLanguage from './views/NavLanguage.vue';
 
 export default new VueRouter({
   routes: [
-    {path: '/home', component: NavHome}, 
+    {path: '/home', components: NavHome}, 
     {path: '/service', component: NavService}, 
     {path: '/language', component: NavLanguage}, 
 ]
