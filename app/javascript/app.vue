@@ -1,49 +1,19 @@
 <template>
   <v-app id="app">
-    <v-toolbar color="blue lighten-3" dark>
-      <v-toolbar-title>Evaluation</v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-avatar color="grey lighten-2"></v-avatar>
-      <v-btn flat>Post</v-btn>
-    </v-toolbar>
-    <v-container style="height: 1000px">
-      <v-card  style="margin-top: 10px" v-for="e in eList">
-        <v-card-title>
-          <h3>{{ e.title }}</h3>
-        </v-card-title>
-        <v-card-subtitle>{{ e.service }}</v-card-subtitle>
-        <v-card-subtitle>{{ e.language }}</v-card-subtitle>
-        <v-card-text style="width:100%; height:100px; background-color:#efefef;">{{ e.description }}</v-card-text>
-        <v-card-actions>
-          <v-btn flat color="red">Update</v-btn>
-          <v-btn flat color="gray">Delete</v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-container>
+    <Header></Header>
+    <ContentView></ContentView>
   </v-app>
 </template>
 
 <script>
-import axios from "axios";
+import Header from "./components/Header.vue"
+import ContentView from "./components/ContentView.vue"
 
 export default {
-  el: '#app',
-  data(){
-    return {
-      eList: ['', ''],
-    }
-  },
-  mounted() {
-    this.listE();
-  },
-  methods: {
-    listE: function() {
-      axios.get('/api/users')
-      .then(response => {
-        this.eList = response.data
-      });
-    }
-  },
+  components: {
+    Header,
+    ContentView
+  }
 }
 </script>
 
