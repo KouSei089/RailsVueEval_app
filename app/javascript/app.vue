@@ -1,5 +1,6 @@
 <template>
   <v-app id="app">
+    <router-view></router-view>
     <Header></Header>
     <!-- navigationbar -->
     <v-bottom-navigation :value="value" color="teal" glow>
